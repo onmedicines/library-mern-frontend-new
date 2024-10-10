@@ -188,16 +188,6 @@
   position: relative;
   isolation: isolate;
 }
-/* .book-img::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: #181c1486;
-  z-index: -1;
-} */
 .book > .content {
   text-align: center;
   display: flex;

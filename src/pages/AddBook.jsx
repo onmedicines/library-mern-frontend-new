@@ -97,10 +97,9 @@ export default function AddBook() {
           <span>Summary</span>
           <textarea rows={7} type="text" name="summary" id="summary" placeholder="This book is about..." onChange={handleChange} value={summary}></textarea>
         </label>
-        <label htmlFor="rating">
+        <label>
           <span>Rating</span>
-          {/* <input type="number" name="rating" id="rating" onChange={handleChange} value={rating} /> */}
-          <span>{renderStars()}</span>
+          <span className="rating-stars">{renderStars()}</span>
         </label>
         <button>Add</button>
       </form>
