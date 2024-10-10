@@ -37,7 +37,6 @@ export default function AddBook() {
     setRating(key);
   }
   function renderStars() {
-    console.log(rating);
     let stars = [];
     for (let i = 1; i <= 5; i++) {
       if (i <= rating) {

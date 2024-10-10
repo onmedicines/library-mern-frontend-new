@@ -20,13 +20,12 @@ export default function ViewBooks() {
   function renderStars(count) {
     let stars = [];
     for (let i = 1; i <= 5; i++) {
-      if (count >= 0) {
+      if (i <= count) {
         stars.push(
           <span key={i} className="star-wrapper">
             <StarFilled />
           </span>
         );
-        count--;
       } else {
         stars.push(
           <span key={i} className="star-wrapper">
