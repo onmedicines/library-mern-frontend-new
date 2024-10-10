@@ -1,11 +1,13 @@
 import { useState } from "react";
+import Star from "../assets/Star";
+import StarFilled from "../assets/StarFilled";
 
 export default function AddBook() {
   const [bookName, setBookName] = useState("");
   const [authorName, setAuthorName] = useState("");
   const [numberOfPages, setNumberOfPages] = useState("");
   const [summary, setSummary] = useState("");
-  const [rating, setRating] = useState("");
+  const [rating, setRating] = useState(0);
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -29,6 +31,22 @@ export default function AddBook() {
       default:
         break;
     }
+  }
+
+  function handleRatingChange(key) {
+    setRating(key);
+  }
+  function renderStars() {
+    console.log(rating);
+    let stars = [];
+    for (let i = 1; i <= 5; i++) {
+      if (i <= rating) {
+        stars.push(<StarFilled id={i} key={i} handleClick={handleRatingChange} />);
+      } else {
+        stars.push(<Star id={i} key={i} handleClick={handleRatingChange} />);
+      }
+    }
+    return stars;
   }
 
   function handleSubmit(e) {
@@ -81,7 +99,8 @@ export default function AddBook() {
         </label>
         <label htmlFor="rating">
           <span>Rating</span>
-          <input type="number" name="rating" id="rating" onChange={handleChange} value={rating} />
+          {/* <input type="number" name="rating" id="rating" onChange={handleChange} value={rating} /> */}
+          <span>{renderStars()}</span>
         </label>
         <button>Add</button>
       </form>
