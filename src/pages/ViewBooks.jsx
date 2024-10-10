@@ -20,25 +20,26 @@ export default function ViewBooks() {
         <h1>LIBRARY</h1>
         <h2>These are all the books that have been added to the library</h2>
       </div>
-      <div className="books-container">
-        <div className="book">
-          {isLoading ? (
-            <p>Loading...</p>
-          ) : (
-            books.map((book) => {
-              return (
-                <div key={book._id} className="book">
-                  <h1>{book.bookName}</h1>
-                  <p>{book.authorName}</p>
-                  <p>{book.numberOfPages}</p>
-                  <p>{book.summary}</p>
-                  <p>{book.rating}</p>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : books.length > 0 ? (
+        <div className="books-container">
+          {books.map((book) => {
+            return (
+              <div key={book._id} className="book">
+                <div className="book-img"></div>
+                <div className="content">
+                  <p className="book-name">{book.bookName}</p>
+                  <p className="author-name">by {book.authorName}</p>
+                  <p className="rating">{book.rating}</p>
                 </div>
-              );
-            })
-          )}
+              </div>
+            );
+          })}
         </div>
-      </div>
+      ) : (
+        <p className="error">The libray is empty. Try adding some books.</p>
+      )}
     </>
   );
 }
