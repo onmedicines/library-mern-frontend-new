@@ -1,0 +1,217 @@
+:root {
+  --text-xs: 1rem;
+  --text-sm: 1.25rem;
+  --text-md: 1.5rem;
+  --text-lg: 1.75rem;
+  --text-xl: 2.15rem;
+  --a-little-bit: 0.15rem;
+
+  --max-page-width: 900px;
+
+  /* --color-accent-primary: rgb(156, 80, 156);
+  --color-accent-secondary: rgb(139, 73, 139); */
+  --color-accent-primary: rgb(77, 77, 170);
+  --color-accent-secondary: rgb(98, 98, 214);
+  --color-bg-primary: #181c14;
+  --color-bg-secondary: #3c3d37;
+  --color-text-primary: #ecdfcc;
+  --color-text-secondary: #c4bfb7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+/* Pre-defined classes */
+.active::before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-accent-primary);
+}
+.error {
+  color: rgb(228, 107, 107);
+}
+.message {
+  color: var(--color-accent-primary);
+}
+
+#root {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  min-height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#root > * {
+  padding: 1.5rem 1.5rem;
+}
+
+#header {
+  background-color: var(--color-bg-secondary);
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-size: var(--text-lg);
+  }
+}
+#header > nav {
+  width: 100%;
+  max-width: var(--max-page-width);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#header > nav > ul {
+  list-style: none;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+#header > nav > ul > li {
+  font-size: var(--text-sm);
+
+  /* required for adding .active class */
+  padding: 0.5rem 0.75rem;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+/* main */
+#main {
+  flex: 1;
+  width: 100%;
+  max-width: var(--max-page-width);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+#main > .text {
+  text-align: center;
+}
+#main > .text > h1 {
+  font-size: var(--text-xl);
+  padding-bottom: 0.75rem;
+}
+#main > .text > h2 {
+  font-size: var(--text-sm);
+}
+#main > form {
+  background-color: var(--color-bg-secondary);
+  padding: 2rem 2.75rem;
+  width: 100%;
+  max-width: 560px;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+#main > form > label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+#main > form > label > span {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+}
+#main > form > label > input,
+#main > form > label > textarea {
+  padding: 0.75rem 1rem;
+  font-size: calc(var(--text-sm)- var(--a-little-bit));
+  border-radius: 4px;
+  outline: none;
+  border: none;
+}
+#main > form > button {
+  outline: none;
+  border: none;
+  color: var(--color-text-primary);
+  background-color: var(--color-accent-primary);
+  font-size: calc(var(--text-sm) - var(--a-little-bit));
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  align-self: flex-start;
+
+  transition: background-color 150ms;
+}
+#main > form > button:hover {
+  background-color: var(--color-accent-secondary);
+}
+
+/* books */
+#main > .books-container {
+  width: 100%;
+  flex-grow: 1;
+
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+.book {
+  background-color: var(--color-bg-secondary);
+  height: 300px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.book > .book-img {
+  background-image: url("./assets/book-cover.jpeg");
+  height: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50%;
+
+  /* for "::before" */
+  position: relative;
+  isolation: isolate;
+}
+/* .book-img::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #181c1486;
+  z-index: -1;
+} */
+.book > .content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.book-name {
+  font-size: var(--text-md);
+}
+.author-name {
+  font-size: calc(var(--text-sm));
+}
+.rating {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+}
