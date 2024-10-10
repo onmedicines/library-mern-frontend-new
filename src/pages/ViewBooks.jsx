@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 
+import StarFilled from "../assets/StarFilled.jsx";
+import Star from "../assets/Star.jsx";
+
 export default function ViewBooks() {
   const [books, setBooks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -13,6 +16,27 @@ export default function ViewBooks() {
       })
       .catch((err) => console.log(err.message));
   }, []);
+
+  function renderStars(count) {
+    let stars = [];
+    for (let i = 1; i <= 5; i++) {
+      if (count >= 0) {
+        stars.push(
+          <span key={i} className="star-wrapper">
+            <StarFilled />
+          </span>
+        );
+        count--;
+      } else {
+        stars.push(
+          <span key={i} className="star-wrapper">
+            <Star />
+          </span>
+        );
+      }
+    }
+    return stars;
+  }
 
   return (
     <>
@@ -31,7 +55,7 @@ export default function ViewBooks() {
                 <div className="content">
                   <p className="book-name">{book.bookName}</p>
                   <p className="author-name">by {book.authorName}</p>
-                  <p className="rating">{book.rating}</p>
+                  <p className="rating">{renderStars(book.rating)}</p>
                 </div>
               </div>
             );
