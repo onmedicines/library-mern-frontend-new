@@ -8,11 +8,12 @@ export default function ViewBooks() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:3000/all-books")
+    fetch("https://library-mern-backend.onrender.com/all-books")
       .then((res) => res.json())
       .then((data) => {
         setBooks(data);
         setIsLoading(false);
+        console.log(data); //logs
       })
       .catch((err) => console.log(err.message));
   }, []);

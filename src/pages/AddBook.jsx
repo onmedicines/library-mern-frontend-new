@@ -53,7 +53,7 @@ export default function AddBook() {
     const data = { bookName, authorName, numberOfPages, summary, rating };
 
     try {
-      const apiResponse = fetch("http://localhost:3000/", {
+      const apiResponse = fetch("https://library-mern-backend.onrender.com/", {
         method: "post",
         body: JSON.stringify(data),
         headers: {
