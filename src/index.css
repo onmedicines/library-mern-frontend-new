@@ -1,9 +1,9 @@
 :root {
   --screen-size-factor: 1.5vw;
 
-  --text-xs: clamp(0.75rem, 1vw, 1rem);
-  --text-sm: clamp(1rem, 1.25vw, 1.35rem);
-  --text-md: clamp(1rem, 1.5vw, 1.65rem);
+  --text-xs: clamp(0.9rem, 1.1vw, 1rem);
+  --text-sm: clamp(1.1rem, 1.25vw, 1.35rem);
+  --text-md: clamp(1.1rem, 1.5vw, 1.65rem);
   --text-lg: clamp(1.25rem, 1.75vw, 1.85rem);
   --text-xl: clamp(1.75rem, 2.15vw, 2.15rem);
   --a-little-bit: 0.15rem;
@@ -141,7 +141,7 @@
 #main > form > label > input,
 #main > form > label > textarea {
   padding: 0.75rem 1rem;
-  font-size: calc(var(--text-sm)- var(--a-little-bit));
+  font-size: calc(var(--text-sm) - var(--a-little-bit));
   border-radius: 4px;
   outline: none;
   border: none;
@@ -203,7 +203,7 @@
   gap: 0.25rem;
 }
 .book-name {
-  font-size: calc(var(--text-md) - var(--a-little-bit));
+  font-size: var(--text-md);
 }
 .author-name {
   font-size: calc(var(--text-xs));
