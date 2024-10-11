@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-import StarFilled from "../assets/StarFilled.jsx";
-import Star from "../assets/Star.jsx";
+import StarFilled from "../components/StarFilled.jsx";
+import Star from "../components/Star.jsx";
 
 export default function ViewBooks() {
   const [books, setBooks] = useState([]);

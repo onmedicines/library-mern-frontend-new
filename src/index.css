@@ -203,10 +203,10 @@
   gap: 0.25rem;
 }
 .book-name {
-  font-size: var(--text-md);
+  font-size: calc(var(--text-md) - var(--a-little-bit));
 }
 .author-name {
-  font-size: calc(var(--text-sm));
+  font-size: calc(var(--text-xs));
 }
 .rating {
   display: flex;

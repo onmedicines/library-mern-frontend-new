@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Star from "../assets/Star";
-import StarFilled from "../assets/StarFilled";
+import Star from "../components/Star";
+import StarFilled from "../components/StarFilled";
 
 export default function AddBook() {
   const [bookName, setBookName] = useState("");
