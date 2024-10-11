@@ -40,9 +40,9 @@ export default function AddBook() {
     let stars = [];
     for (let i = 1; i <= 5; i++) {
       if (i <= rating) {
-        stars.push(<StarFilled id={i} key={i} handleClick={handleRatingChange} />);
+        stars.push(<StarFilled id={i} key={i} size="28" handleClick={handleRatingChange} />);
       } else {
-        stars.push(<Star id={i} key={i} handleClick={handleRatingChange} />);
+        stars.push(<Star id={i} key={i} size="28" handleClick={handleRatingChange} />);
       }
     }
     return stars;
