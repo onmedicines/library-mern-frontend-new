@@ -88,6 +88,7 @@
 }
 #header > nav > ul > li {
   font-size: calc(var(--text-sm) - var(--a-little-bit));
+  cursor: pointer;
 
   /* required for adding .active class */
   padding: 0.5rem 0.75rem;
@@ -95,6 +96,10 @@
   isolation: isolate;
   overflow: hidden;
   border-radius: 4px;
+}
+
+button {
+  cursor: pointer;
 }
 
 /* main */
@@ -118,6 +123,11 @@
 #main > .text > h2 {
   font-size: var(--text-sm);
 }
+
+/* error */
+#main > .error-container {
+}
+
 #main > form {
   background-color: var(--color-bg-secondary);
   padding: clamp(1rem, 2vw, 2rem) clamp(1.25rem, 2.75vw, 2.75rem);
@@ -138,13 +148,21 @@
   font-size: var(--text-xs);
   color: var(--color-text-secondary);
 }
-#main > form > label > input,
-#main > form > label > textarea {
+#main > form > label > div {
+  display: flex;
+  gap: 0.25rem;
+}
+#main > form > label input,
+#main > form > label textarea {
+  flex-grow: 1;
   padding: 0.75rem 1rem;
   font-size: calc(var(--text-sm) - var(--a-little-bit));
   border-radius: 4px;
   outline: none;
   border: none;
+}
+#main > form > label button {
+  padding: 0 0.75rem;
 }
 #main > form .rating-stars {
   display: flex;

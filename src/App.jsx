@@ -1,19 +1,26 @@
 import { useState } from "react";
+import { createBrowserRouter, RouterProvider, Route, createRoutesFromElements } from "react-router-dom";
 import Home from "./pages/Home.jsx";
-import AddBook from "./pages/AddBook.jsx";
-import ViewBooks from "./pages/ViewBooks.jsx";
+import Signin from "./pages/Signin.jsx";
+import Signup from "./pages/Signup.jsx";
+import Error from "./pages/Error.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
 
 export default function App() {
   const [activeNavlink, setActiveNavlink] = useState("home");
+  const [loggedIn, setLoggedIn] = useState(false);
 
   function handleNavlinkChange(e) {
     const { id } = e.target;
     if (id === "home") {
       setActiveNavlink("home");
-    } else if (id === "viewBooks") {
-      setActiveNavlink("viewBooks");
-    } else if (id === "addBook") {
-      setActiveNavlink("addBook");
+    } else if (id === "signin") {
+      setActiveNavlink("signin");
+    } else if (id === "signup") {
+      setActiveNavlink("signup");
+    } else if (id === "logout") {
+      setLoggedIn(false);
+      setActiveNavlink("home");
     }
   }
 
@@ -21,12 +28,12 @@ export default function App() {
     switch (activeNavlink) {
       case "home":
         return <Home />;
-      case "addBook":
-        return <AddBook />;
-      case "viewBooks":
-        return <ViewBooks />;
+      case "signin":
+        return <Signin setLoggedIn={setLoggedIn} />;
+      case "signup":
+        return <Signup setLoggedIn={setLoggedIn} />;
       default:
-        return <ErrorPage />;
+        return <Error />;
     }
   }
 
@@ -35,20 +42,26 @@ export default function App() {
       <header id="header">
         <nav onClick={handleNavlinkChange}>
           <h1>Library</h1>
-          <ul>
-            <li id="home" className={activeNavlink === "home" ? "active" : "unactive"}>
-              Home
-            </li>
-            <li id="addBook" className={activeNavlink === "addBook" ? "active" : "unactive"}>
-              Add book
-            </li>
-            <li id="viewBooks" className={activeNavlink === "viewBooks" ? "active" : "unactive"}>
-              View book
-            </li>
-          </ul>
+          {!loggedIn ? (
+            <ul>
+              <li id="home" className={activeNavlink === "home" ? "active" : "unactive"}>
+                Home
+              </li>
+              <li id="signin" className={activeNavlink === "signin" ? "active" : "unactive"}>
+                Login
+              </li>
+              <li id="signup" className={activeNavlink === "signup" ? "active" : "unactive"}>
+                Signup
+              </li>
+            </ul>
+          ) : (
+            <ul>
+              <li id="logout">Logout</li>
+            </ul>
+          )}
         </nav>
       </header>
-      <main id="main">{render()}</main>
+      <main id="main">{!loggedIn ? render() : <Dashboard />}</main>
     </>
   );
 }
