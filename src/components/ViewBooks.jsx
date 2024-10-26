@@ -8,10 +8,10 @@ export default function ViewBooks() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // fetch("https://library-mern-backend.onrender.com/all-books")
-
     const token = localStorage.getItem("token");
-    fetch("http://localhost:3000/books", {
+
+    fetch("https://library-mern-backend.onrender.com/books", {
+      // fetch("http://localhost:3000/books", {
       method: "post",
       headers: {
         Authorization: `BEARER ${token}`,
