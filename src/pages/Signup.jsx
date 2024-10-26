@@ -19,7 +19,7 @@ export default function Signup({ setLoggedIn }) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    fetch("http://localhost:3000/signup", {
+    fetch("https://library-mern-backend.onrender.com/signup", {
       method: "post",
       body: JSON.stringify({
         username,
