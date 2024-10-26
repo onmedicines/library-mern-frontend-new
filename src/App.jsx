@@ -3,7 +3,6 @@ import { createBrowserRouter, RouterProvider, Route, createRoutesFromElements } 
 import Home from "./pages/Home.jsx";
 import Signin from "./pages/Signin.jsx";
 import Signup from "./pages/Signup.jsx";
-import Error from "./pages/Error.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 
 export default function App() {

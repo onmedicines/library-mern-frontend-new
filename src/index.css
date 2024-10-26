@@ -14,6 +14,7 @@
   --color-accent-secondary: rgb(139, 73, 139); */
   --color-accent-primary: rgb(77, 77, 170);
   --color-accent-secondary: rgb(98, 98, 214);
+  --color-error: rgb(228, 107, 107);
   --color-bg-primary: #181c14;
   --color-bg-secondary: #3c3d37;
   --color-text-primary: #ecdfcc;
@@ -39,7 +40,7 @@
   background-color: var(--color-accent-primary);
 }
 .error {
-  color: rgb(228, 107, 107);
+  color: var(--color-error);
 }
 .message {
   color: var(--color-accent-primary);
@@ -97,6 +98,27 @@
   overflow: hidden;
   border-radius: 4px;
 }
+#logout {
+  padding: 0.5rem 0.75rem;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 4px;
+}
+#logout::before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  transition: background-color 150ms ease;
+}
+#logout:hover::before {
+  background-color: var(--color-accent-primary);
+}
 
 button {
   cursor: pointer;
@@ -126,6 +148,7 @@ button {
 
 /* error */
 #main > .error-container {
+  color: var(--color-error);
 }
 
 #main > form {
@@ -184,6 +207,33 @@ button {
 }
 #main > form > button:hover {
   background-color: var(--color-accent-secondary);
+}
+
+/* dashboard  */
+
+.add-view-button {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: var(--text-xs);
+
+  padding: 0.5rem 0.75rem;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 4px;
+}
+.add-view-button::before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-accent-primary);
+  transition: background-color 150ms ease;
 }
 
 /* books */
