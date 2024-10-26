@@ -34,7 +34,7 @@ export default function Signup({ setLoggedIn }) {
         // if a token is not returned
         // the user credentials are not valid
         // hence throw an error
-        if (!res.token) throw new Error("Invalid credentials");
+        if (!res.token) throw new Error("User already exists.");
 
         localStorage.setItem("token", res.token);
         setLoggedIn(true);
